@@ -4,7 +4,7 @@
 Script to send events to an Event Grid Topic
 
 .DESCRIPTION
-The script sends events read from a json file to a specific Event Grid Topic.
+The script sends events read from a json file to a specific Event Grid Topic. It waits a random time between 0 and 2000ms between each delivery.
 Mandatory and optional fields:
 	- TopicKey (Mandatory): Event Grid Topic Key.
 	- TopicUri (Mandatory): Event Grid Topic Uri.
