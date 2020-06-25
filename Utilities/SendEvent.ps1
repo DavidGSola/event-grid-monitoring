@@ -1,13 +1,11 @@
-$EventBody = Get-Content -Raw -Path 'event.json'
-
-Write-Output $EventBody
+param ($topicKey, $topicUri)
 
 $RequestParams = @{
     ContentType = 'application/cloudevents+json; charset=utf-8' 
-    Body = $EventBody
+    Body = Get-Content -Raw -Path 'event.json'
     Method = 'Post'
-    URI = 'https://ds-topic.northeurope-1.eventgrid.azure.net/api/events'
-    Headers = @{'aeg-sas-key'='HDyOKOe21niWCLbKYLaI0RPmYDplrX32eRxPCqXUgBs='}
+    URI = $topicUri
+    Headers = @{'aeg-sas-key'=$topicKey}
 }
 
 Invoke-RestMethod @RequestParams
