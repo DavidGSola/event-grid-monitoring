@@ -1,7 +1,11 @@
-<div class="content" role="main">
-  <h2>Events received {{ events.length }}</h2>
+<mat-toolbar color=primary>
+  <span>Event Grid Monitor</span>
+</mat-toolbar>
 
-  <div class="card" *ngFor="let event of events">
+<div class="content" role="main">
+  <counter [count]=eventSource.events.length></counter>
+
+  <div class="card" *ngFor="let event of eventSource.events">
     <span>{{ event }}</span>
   </div>
 </div>
